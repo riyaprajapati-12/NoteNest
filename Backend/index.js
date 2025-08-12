@@ -34,17 +34,4 @@ mongoose.connect(connectionString)
 
 
 
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-// For ES Modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/note-app/dist')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/note-app/dist', 'index.html'));
-  });
-}
