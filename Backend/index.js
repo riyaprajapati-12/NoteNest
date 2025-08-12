@@ -1,6 +1,6 @@
 
 require("dotenv").config();
-const config = require('./config.json')
+
 const mongoose = require("mongoose")
 const userRouter = require ("./Routes/userRouter")
 const noteRouter = require ("./Routes/noteRouter")
@@ -16,13 +16,13 @@ app.use('/user',userRouter);
 app.use('/note',noteRouter);
 
 
-
+const connectionString = process.env.MONGODB_URI 
 
 app.get("/",(req,res)=>{
     res.send({data:"i am data"})
 });
 
-mongoose.connect(config.connectionString)
+mongoose.connect(connectionString)
 .then(()=>{
     app.listen(8080,()=>{
         console.log("server is running at port no. 8080")
