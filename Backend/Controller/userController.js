@@ -55,15 +55,15 @@ const signin = async (req,res) =>{
 
 const getUser = async (req, res) => {
   try {
-    //console.log("User ID from token:", req.userId); // Log the userId for debugging
-    const getUser = await userModel.findOne({ _id: req.userId }); // Adjust query if needed
+    //console.log("User ID from token:", req.userId); // 
+    const getUser = await userModel.findOne({ _id: req.userId }); 
     if (!getUser) {
       return res.status(404).json({ message: "User not found" });
     }
     res.status(200).json({
       fullName: getUser.fullName,
       email: getUser.email,
-      _id: getUser._id, // Corrected this line
+      _id: getUser._id,
     });
   } catch (error) {
     console.error(error);

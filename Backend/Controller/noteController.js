@@ -35,7 +35,7 @@ const editnote = async (req,res)=>{
             
         }
         try {
-            await noteSchema.findByIdAndUpdate(id,newNote,{new:true})//new:true humare database me jaa kr change karega
+            await noteSchema.findByIdAndUpdate(id,newNote,{new:true})
             res.status(200).json(newNote);
         } catch (error) {
             console.log(error)

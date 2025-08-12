@@ -31,6 +31,7 @@ export default function Login() {
       localStorage.setItem("token", token);
       setEmail("");
       setPassword("");
+      console.log(response.data)
       navigate("/dashboard");
     } catch (error) {
       setError("Login failed. Please check your credentials and try again.");
